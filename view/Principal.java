@@ -1,21 +1,24 @@
 package view;
 
-import model.ingresso;
-import model.IngressoVIP;
+import model.Professor;
+import model.ProfessorHorista;
+import model.ProfessorTitular;
 
 public class Principal {
     public static void main(String[] args) {
-        
-        ingresso ingressoNormal = new ingresso("123", 50.0f);
-        IngressoVIP ingressoVIP = new IngressoVIP("456", 100.0f, "VIP");
+        // Exemplo de uso
+        ProfessorTitular professorTitular = new ProfessorTitular();
+        professorTitular.setAnosInstituicao(10);
+        professorTitular.setSalario(5000.0);
 
-        float taxaConveniencia = 5.0f;
+        ProfessorHorista professorHorista = new ProfessorHorista();
+        professorHorista.setHorasAula(40);
+        professorHorista.setValorHoraAula(50.0);
 
-        float valorFinalNormal = ingressoNormal.getValorFinal(taxaConveniencia);
-        System.out.println("Valor final do ingresso normal: R$" + valorFinalNormal);
+        double salarioProfessorTitular = professorTitular.calcSalario();
+        System.out.println("Salário do Professor Titular: R$" + salarioProfessorTitular);
 
-       
-        float valorFinalVIP = ingressoVIP.getValorFinal(taxaConveniencia);
-        System.out.println("Valor final do ingresso VIP: R$" + valorFinalVIP);
+        double salarioProfessorHorista = professorHorista.calcSalario();
+        System.out.println("Salário do Professor Horista: R$" + salarioProfessorHorista);
     }
 }
